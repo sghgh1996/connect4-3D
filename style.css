@@ -2,10 +2,22 @@
 
 body {
     margin: 0px;
+
 }
 
 canvas {
   width: 70vw;
   height: 100vh;
-  display: block;
+  display: inline-block;
+  
+}
+
+/*div.inline { float/*:left; }*/
+/*.clearBoth { clear:both; }*/
+
+.cp{
+	/*margin-top: -400px;*/
+	padding: 30px !important;
+	margin-left: 10px;
+	vertical-align: top;
 }
