@@ -272,7 +272,7 @@ function main() {
   const radius = m4.length(baseRange) * 1.2;
   const cameraPosition = m4.addVectors(cameraTarget, [
     10,
-    10,
+    20,
     radius,
   ]);
 
@@ -350,7 +350,7 @@ function main() {
               // calls gl.uniform
               twgl.setUniforms(meshProgramInfo, {
                 u_world,
-                u_diffuse: gameMatrix[i][j][k] ===1 ? [1, 1, 0, 1] : [0, 1, 1, 1],
+                u_diffuse: gameMatrix[i][j][k] === 1 ? [1, 1, 0, 1] : [0, 1, 1, 1],
               });
               // calls gl.drawArrays or gl.drawElements
               twgl.drawBufferInfo(gl, bufferInfo);

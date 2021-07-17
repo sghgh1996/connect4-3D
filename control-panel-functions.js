@@ -1,6 +1,6 @@
 var gameMatrix = [];
 
-// An array of 4x4x5
+// An array of 4 x 4 x 5
 for (let i = 0; i < 4; i++) { // on z
   gameMatrix[i] = [];
 
@@ -35,8 +35,7 @@ function tableCreate () {
       btn.className= "btn btn-basic board-btn";
       btn.id = `${i}-${j}`;
 
-      btn. onclick = function(event) {
-        console.log(i, j)
+      btn. onclick = function (event) {
         // We check here if there is a piece in the place or not
         for (let k = 0; k < 5; k++) {
           if (!gameMatrix[i][j][k]) {
@@ -44,6 +43,8 @@ function tableCreate () {
             break
           }
         }
+
+        check_winning()
 
         toggle_turn();
       }
@@ -86,6 +87,8 @@ function toggle_turn () {
   turn_label.innerHTML = turn_name + "'s turn";
 }
 
-// window.onload = tableCreate
+function check_winning () {
+  // TODO
+}
 
 tableCreate()
