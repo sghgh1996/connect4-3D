@@ -13,19 +13,21 @@
 
   	<link rel="stylesheet" href="style.css">
 
-		<script src="utils.js"></script>
+	<script src="utils.js"></script>
     <script src="./models/base.js"></script>
     <script src="./models/piece.js"></script>
     <script src="https://webgl2fundamentals.org/webgl/resources/twgl-full.min.js"></script>
     <script src="https://webgl2fundamentals.org/webgl/resources/m4.js"></script>
 
 		<script src="app.js"></script>
+
+
 	</head>
 
 	<body>
 		<div class="cp">
 			<div class="header">
-			  3D Connect 4
+			  Welcome to 3D Connect 4
 			</div>
 
 		 	
@@ -37,26 +39,16 @@
 			      <label for="usr" style="margin-top: 10px;">Player 2:</label>
 			      <input type="text" class="form-control" id="exampleInput2" placeholder="Enter Name">
 			    </form>
-			    <div class="hide names" >
-			      	<label>Player 1: </label>
-			      	<br>
-			      	<label>Player 2: </label>
-			  	 </div>
-
-			      <br>
-			      <br>
-			      
-			      <button type="button" class="btn btn-basic btn-block">Let's Start!</button>
-			  
-			      <div class="controller">
-			      	<button class="board-btn"></button>
-			      </div>
-
-
-
-
-
+			      <button id="start-btn" type="button" class="btn btn-basic btn-block">Let's Start!</button>
 			  </div>
+
+		    <div class="hide names" >
+		      	<label>Player 1: </label>
+		      	<br>
+		      	<label>Player 2: </label>
+		  	 </div>
+		  	  <h4>Choose next Move here:<h4>
+			  <div id="controller"></div>
 			
 			  
 		</div>
@@ -74,3 +66,4 @@
 
 	</body>
 </html>
+<script src="ControlPanelFunctions.js"></script>

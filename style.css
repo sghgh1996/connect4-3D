@@ -12,12 +12,10 @@ canvas {
   
 }
 
-/*div.inline { float/*:left; }*/
-/*.clearBoth { clear:both; }*/
 
 .cp{
 	/*margin-top: -400px;*/
-	padding:10px;
+	padding:15px;
 	/*margin-left: 10px;*/
 	vertical-align: top;
 	text-align: center;
@@ -31,6 +29,24 @@ canvas {
 	text-align:center;
 
 }
+
+
+
+
+
+input{
+	width: 77% !important;
+}
+
+label{
+	width: 20%;
+}
+#start-btn{
+	margin-top: 15px;
+}
+/*div.inline { float/*:left; }*/
+/*.clearBoth { clear:both; }*/
+
 
 .starter{
 	width: inherit;
@@ -46,16 +62,32 @@ canvas {
 	color: yellow;
 }
 
-/* contoller */
+h4{
+	margin-top: 20px;
+	margin-bottom: -10px;
+}
+/* Contoller Table */
 .board-btn {
   display:block;
-  height: 30px;
-  width: 30px;
+  height: 40px;
+  width: 40px;
   border-radius: 20%;
-  border: 1px solid yellow;
-  
+  border: 1px solid yellow; 
 }
 
-.controller {
+#controller {
+	padding-left: 30px;
 	margin-top: 20px;
+	text-align: center;
+}
+td{
+	border:0;
+	width: 30px !important !important;
+	margin:0;
+}
+
+table{
+	align: center;
+	display: block;
+	border:0;
 }
