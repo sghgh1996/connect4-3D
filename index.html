@@ -2,24 +2,67 @@
 <html lang="en">
 	<head>
 		<title>3D Connect-4</title>
-
-		<meta charset="utf-8">
+	
+	<!-- bootstrap-->
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<!--------------------------->
+	<meta charset="utf-8">
   	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 
   	<link rel="stylesheet" href="style.css">
 
-		<script src="utils.js"></script>
+	<script src="utils.js"></script>
     <script src="./models/base.js"></script>
     <script src="./models/piece.js"></script>
     <script src="https://webgl2fundamentals.org/webgl/resources/twgl-full.min.js"></script>
     <script src="https://webgl2fundamentals.org/webgl/resources/m4.js"></script>
 
 		<script src="app.js"></script>
+
+
 	</head>
 
 	<body>
-		<canvas id="game-canvas" width='800' height='450'>
-			Your browser doesn't support the Canvas Element!
-		</canvas>
+		<div class="cp">
+			<div class="header">
+			  Welcome to 3D Connect 4
+			</div>
+			
+		 	
+			  <div class="row starter">
+			    <form class="form-inline">
+			    <label for="usr">Player 1:</label>
+			      <input type="text" class="form-control" id="player1" placeholder="Enter Name">
+			      <br>
+			      <label for="usr" style="margin-top: 10px;">Player 2:</label>
+			      <input type="text" class="form-control" id="player2" placeholder="Enter Name">
+			    </form>
+			      <button id="start-btn" type="button" class="btn btn-basic btn-block" on onclick="start()">Let's Start!</button>
+			  </div>
+
+		    <div id="names" class="hide" >
+		      	<p id ="name1">Player 1: </p>
+		      	<br>
+		      	<p id ="name2">Player 2: </p>
+		  	 </div>
+
+		  	 <div style="height: 50px; width: 100%;"></div>
+		  	 
+			
+			  <p id="turn" >Player 1</p>
+		  	  <h4>Choose next Move here:<h4>
+			  <div id="controller"></div>
+			
+		</div>
+
+		<div>
+			<canvas id="game-canvas" width='800' height='450'>
+				Your browser doesn't support the Canvas Element!
+			</canvas>
+		</div>
+
 	</body>
 </html>
+<script src="ControlPanelFunctions.js"></script>
