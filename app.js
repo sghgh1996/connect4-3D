@@ -260,33 +260,25 @@ function main() {
     });
   }
 
-  const extents = getGeometriesExtents(baseObj.geometries);
-  const range = m4.subtractVectors(extents.max, extents.min);
+  const baseExtents = getGeometriesExtents(baseObj.geometries);
+  const baseRange = m4.subtractVectors(baseExtents.max, baseExtents.min);
 
   // amount to move the object so its center is at the origin
-  const baseObjOffset = m4.scaleVector(m4.addVectors(extents.min, m4.scaleVector(range, 0.5)), -1);
+  const baseObjOffset = m4.scaleVector(m4.addVectors(baseExtents.min, m4.scaleVector(baseRange, 0.5)), -1);
 
   const cameraTarget = [0, 0, 0];
   // figure out how far away to move the camera so we can likely
   // see the object.
-  const radius = m4.length(range) * 1.2;
+  const radius = m4.length(baseRange) * 1.2;
   const cameraPosition = m4.addVectors(cameraTarget, [
     10,
     10,
     radius,
   ]);
 
-  const extents2 = getGeometriesExtents(pieceObj.geometries);
-  const range2 = m4.subtractVectors(extents2.max, extents2.min);
+  const pieceExtents = getGeometriesExtents(pieceObj.geometries);
+  const pieceRange = m4.subtractVectors(pieceExtents.max, pieceExtents.min);
 
-  // amount to move the object so its center is at the origin
-  // const pieceObjOffset = m4.scaleVector(m4.addVectors(extents2.min, m4.scaleVector(range2, 1)), 1);
-
-  // up-down = y & unit = 1, left-right = x & unit = 2, front-back = z & unit = 2
-  const pieceObjOffset = m4.addVectors(
-    [extents2.min[0], extents2.min[1], extents2.min[2]],
-    [range2[0]-2, range2[1]-2, 4]
-  );
 
   // Set zNear and zFar to something hopefully appropriate
   // for the size of this object.
@@ -337,19 +329,35 @@ function main() {
       twgl.drawBufferInfo(gl, bufferInfo);
     }
 
-    u_world = utils.identityMatrix()
-    u_world = m4.translate(u_world, ...pieceObjOffset);
 
-    for (const {bufferInfo, vao, material} of pieceParts) {
-      // set the attributes for this part.
-      gl.bindVertexArray(vao);
-      // calls gl.uniform
-      twgl.setUniforms(meshProgramInfo, {
-        u_world,
-        u_diffuse: material.u_diffuse,
-      });
-      // calls gl.drawArrays or gl.drawElements
-      twgl.drawBufferInfo(gl, bufferInfo);
+    for (let i = 0; i < 4; i++) { // on x
+      for (let j = 0; j < 4; j++) { // on y
+        for (let k = 0; k < 5; k++) { // on z
+          if (gameMatrix[i][j][k]) {
+
+            // up-down = y & unit = 1, left-right = x & unit = 2, front-back = z & unit = 2
+            const pieceObjOffset = m4.addVectors(
+              [pieceExtents.min[0], pieceExtents.min[1], pieceExtents.min[2]],
+              [pieceRange[0] + (j * 2 - 4), pieceRange[1] + (k - 2) , -i * 2 + 4]
+            );
+
+            u_world = utils.identityMatrix()
+            u_world = m4.translate(u_world, ...pieceObjOffset);
+
+            for (const {bufferInfo, vao, material} of pieceParts) {
+              // set the attributes for this part.
+              gl.bindVertexArray(vao);
+              // calls gl.uniform
+              twgl.setUniforms(meshProgramInfo, {
+                u_world,
+                u_diffuse: gameMatrix[i][j][k] ===1 ? [1, 1, 0, 1] : [0, 1, 1, 1],
+              });
+              // calls gl.drawArrays or gl.drawElements
+              twgl.drawBufferInfo(gl, bufferInfo);
+            }
+          }
+        }
+      }
     }
 
     requestAnimationFrame(render);
