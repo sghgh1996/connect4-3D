@@ -34,6 +34,7 @@ canvas {
 	font-size:23px;
 	text-align:center;
 	margin-bottom: 20px;
+	width: 100%;
 
 }
 
@@ -58,6 +59,7 @@ label{
 .starter{
 	width: inherit;
 	padding: inherit;
+	margin-bottom: -30px;
 }
 
 .hide{
@@ -65,10 +67,19 @@ label{
 	width: 100px;
 }
 
-.names{
-	color: yellow;
-
+.show{
+	display:block;
 }
+#names{
+	color: yellow;
+	width: 100%;
+	float: none;
+}
+
+#names p{
+font-size: 17px;
+margin-bottom: -20px;
+} 
 
 h4{
 	
@@ -88,6 +99,7 @@ h4{
 	margin-top: 20px;
 	text-align: center;
 }
+
 td{
 	border:0;
 	width: 30px !important !important;
@@ -95,7 +107,12 @@ td{
 }
 
 table{
-	align: center;
+	
 	display: block;
 	border:0;
+}
+
+p{
+	font-size: 20px;
+}
 }
