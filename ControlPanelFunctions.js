@@ -3,9 +3,9 @@ function tableCreate() {
   tbl = document.createElement('table');
   tbl.setAttribute('border', '0');
   tbdy = document.createElement('tbody');
-  for (var i = 0; i < 6; i++) {
+  for (var i = 0; i < 4; i++) {
     var tr = document.createElement('tr');
-    for (var j = 0; j < 6; j++) {
+    for (var j = 0; j < 4; j++) {
         td = document.createElement('td');
         btn = document.createElement('button');
         btn.className= "btn btn-basic board-btn";
