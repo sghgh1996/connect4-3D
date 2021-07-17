@@ -3,10 +3,16 @@
 body {
     margin: 0px;
 
+   float:left; 
+    width:100%; 
+}
+
+body div{ 
+    float:left;
 }
 
 canvas {
-  width: 75vw;
+  width: 73vw;
   height: 100vh;
   display: inline-block;
   
@@ -14,19 +20,20 @@ canvas {
 
 
 .cp{
-	/*margin-top: -400px;*/
+	margin-top: 70px;
 	padding:15px;
-	/*margin-left: 10px;*/
 	vertical-align: top;
 	text-align: center;
 	clear: left;
 	width: 25vw;
-	border: 1px solid black;
+	/*border: 1px solid black;*/
+	display: inline-block;
 }
 .header{
 	display: inline-block;
-	font-size:25px;
+	font-size:23px;
 	text-align:center;
+	margin-bottom: 20px;
 
 }
 
@@ -60,11 +67,12 @@ label{
 
 .names{
 	color: yellow;
+
 }
 
 h4{
-	margin-top: 20px;
-	margin-bottom: -10px;
+	
+	margin-bottom: -20px;
 }
 /* Contoller Table */
 .board-btn {
