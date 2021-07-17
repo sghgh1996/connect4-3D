@@ -1,31 +1,11 @@
+@import url("https://webgl2fundamentals.org/webgl/resources/webgl-tutorials.css");
+
 body {
-    color: #cccccc;
-    font-family: Monospace;
-    font-size: 13px;
-    text-align: center;
     margin: 0px;
-    overflow: hidden;
 }
 
-#info {
-    position: absolute;
-    top: 0px;
-    width: 100%;
-    padding: 5px;
-}
-
-#description {
-    position: absolute;
-    top: 20px;
-    width: 100%;
-    padding: 5px;
-}
-
-.float {
-    float: left;
-    top: 10px;
-}
-
-a {
-    color: #0080ff;
+canvas {
+  width: 70vw;
+  height: 100vh;
+  display: block;
 }
