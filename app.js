@@ -338,7 +338,7 @@ function main() {
             // up-down = y & unit = 1, left-right = x & unit = 2, front-back = z & unit = 2
             const pieceObjOffset = m4.addVectors(
               [pieceExtents.min[0], pieceExtents.min[1], pieceExtents.min[2]],
-              [pieceRange[0] + (j * 2 - 4), pieceRange[1] + (k - 2) , -i * 2 + 4]
+              [pieceRange[0] + (j * 2 - 4), pieceRange[1] + (k - 2) , i * 2 - 2]
             );
 
             u_world = utils.identityMatrix()
