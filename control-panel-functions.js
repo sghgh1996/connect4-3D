@@ -67,9 +67,9 @@ function start () {
   div = document.getElementById('names');
   div.className = "show";
 
-  if (document.getElementById('name1').value.length  0){
-    name1 =  document.getElementById('name1');
-  }
+  
+  name1 =  document.getElementById('name1');
+  
   name2 = document.getElementById('name2');
   name1.innerHTML = name1.innerHTML+ " " + p1;
   name2.innerHTML = name2.innerHTML+ " " + p2;
