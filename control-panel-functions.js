@@ -18,7 +18,7 @@ var p1;
 var p2;
 var turn_name;
 var turn_number = 1; // 1 or 2 
-
+var name1 = "Player 1"
 
 function tableCreate () {
   body = document.getElementById('controller');
@@ -67,7 +67,9 @@ function start () {
   div = document.getElementById('names');
   div.className = "show";
 
-  name1 =  document.getElementById('name1');
+  if (document.getElementById('name1').value.length  0){
+    name1 =  document.getElementById('name1');
+  }
   name2 = document.getElementById('name2');
   name1.innerHTML = name1.innerHTML+ " " + p1;
   name2.innerHTML = name2.innerHTML+ " " + p2;
@@ -244,9 +246,20 @@ function check_winning (x,y,z) {
   
   if(c1 || c2 || c3 || c4 || c5 || c6 || c7){
     alert("Game finished");
+    disableScreen();
+
   }
 
 
+}
+
+
+function disableScreen() {
+    // creates <div class="overlay"></div> and 
+    // adds it to the DOM
+    var div= document.createElement("div");
+    div.className += "overlay";
+    document.body.appendChild(div);
 }
 
 tableCreate()
