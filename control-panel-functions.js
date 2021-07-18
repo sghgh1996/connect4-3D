@@ -203,7 +203,31 @@ function check_diag_yz(x,y,z){
 }
 
 function check_cube_diag(x,y,z){
-  return false;
+  // return false;
+  d1 = true;
+  d2 = true;
+  d3 = true;
+  d4 = true;
+  j = 3;
+  for(i=0; i < 4; i++){
+    if( gameMatrix[i][i][i] != turn_number ){
+      d1 = false;
+    }
+    if (gameMatrix[j-i][j-i][i] != turn_number ){
+      d2 = false;
+    }
+    if (gameMatrix[i][j-i][i] != turn_number ){
+      d3 = false;
+    }
+    if (gameMatrix[j-i][i][i] != turn_number ){
+      d4 = false;
+    }
+  }
+
+  ans = d1 || d2 || d3 || d4;
+  if (ans == true)
+    console.log("cube diagonal match");
+  return ans;
 }
 
 function check_winning (x,y,z) {
