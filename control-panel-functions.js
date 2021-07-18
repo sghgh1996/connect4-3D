@@ -40,12 +40,12 @@ function tableCreate () {
         for (let k = 0; k < 5; k++) {
           if (!gameMatrix[i][j][k]) {
             gameMatrix[i][j][k] = turn_number
+            check_winning(i,j,k)
             break
           }
         }
 
-        check_winning()
-
+        // check_winning()
         toggle_turn();
       }
 
@@ -87,8 +87,57 @@ function toggle_turn () {
   turn_label.innerHTML = turn_name + "'s turn";
 }
 
-function check_winning () {
+function check_x_dir(x,y,z){
+  
+  for (i = 0; i < 4; i++){
+    // console.log("checking:", i,y,z);
+    if (turn_number != gameMatrix[i][y][z]){
+      // console.log("----- ooops found bad color");
+      return false;
+    }
+    // console.log("color accepted");
+  }
+  console.log("horizontal match");
+  return true;
+}
+
+function check_y_dir(x,y,z){
+  
+  for (j = 0; j < 4; j++){
+    if (turn_number != gameMatrix[x][j][z]){
+      return false;
+    }
+  }
+  console.log("vertical match");
+  return true;
+  // return false;
+}
+
+function check_z_dir(x,y,z){
+  
+  for (k = 0; k < 4; k++){
+    if (!turn_number == gameMatrix[x][y][k]){
+      return false;
+    }
+  }
+  console.log("Hirarchichal match");
+  return true;
+  // return false;
+}
+
+function check_winning (x,y,z) {
   // TODO
+  // console.log("||||||||||||||||||||||||||||||||||||");
+  c1 = check_x_dir(x, y, z);
+  c2 = check_y_dir(x, y, z);
+  c3 = check_z_dir(x, y, z);
+  // check_diag_dir();//tasviresh ru safhe kaf
+  console.log(c1, c2, c3);
+  if(c1 || c2 || c3){
+    alert("Game finished");
+  }
+
+
 }
 
 tableCreate()
