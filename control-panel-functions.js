@@ -90,12 +90,9 @@ function toggle_turn () {
 function check_x_dir(x,y,z){
   
   for (i = 0; i < 4; i++){
-    // console.log("checking:", i,y,z);
     if (turn_number != gameMatrix[i][y][z]){
-      // console.log("----- ooops found bad color");
       return false;
     }
-    // console.log("color accepted");
   }
   console.log("horizontal match");
   return true;
@@ -110,30 +107,118 @@ function check_y_dir(x,y,z){
   }
   console.log("vertical match");
   return true;
-  // return false;
 }
 
 function check_z_dir(x,y,z){
   
   for (k = 0; k < 4; k++){
-    if (!turn_number == gameMatrix[x][y][k]){
+    // console.log("checking: ", x, y, k);
+    if (turn_number != gameMatrix[x][y][k]){
+      // console.log("---- ooops! bad color");
       return false;
     }
+    // console.log("good");
   }
-  console.log("Hirarchichal match");
+  // console.log("Hirarchichal match");
   return true;
-  // return false;
+}
+
+function check_diag_xy(x,y,z){
+  d1 = true;
+  d2 = true;
+  //fist diagonal check
+  for(i= 0 ; i < 4; i++){
+    if( gameMatrix[i][i][z] != turn_number ){
+      d1 = false;
+      break
+    }
+  }
+////second diagonal check
+  j = 3;
+  for(i= 0 ; i < 4; i++){
+    if( gameMatrix[i][j-i][z] != turn_number ){
+      d2 = false;
+      break
+    }
+  }
+
+  ans = d1 || d2
+  if (ans == true)
+    console.log("diagonal xy matched in h = ", z);
+
+  return d1 || d2;
+}
+
+function check_diag_xz(x,y,z){
+  d1 = true;
+  d2 = true;
+  //fist diagonal check
+  for(i= 0 ; i < 4; i++){
+    if( gameMatrix[i][y][i] != turn_number ){
+      d1 = false;
+      break
+    }
+  }
+////second diagonal check
+  j = 3;
+  for(i= 0 ; i < 4; i++){
+    if( gameMatrix[i][y][j-i] != turn_number ){
+      d2 = false;
+      break
+    }
+  }
+
+  ans = d1 || d2
+  if (ans == true)
+    console.log("Diagonal xz matched in y = ", y);
+
+  return d1 || d2;
+}
+
+
+function check_diag_yz(x,y,z){
+  d1 = true;
+  d2 = true;
+  //fist diagonal check
+  for(i= 0 ; i < 4; i++){
+    if( gameMatrix[x][i][i] != turn_number ){
+      d1 = false;
+      break
+    }
+  }
+////second diagonal check
+  j = 3;
+  for(i= 0 ; i < 4; i++){
+    if( gameMatrix[x][i][j-i] != turn_number ){
+      d2 = false;
+      break
+    }
+  }
+
+  ans = d1 || d2
+  if (ans == true)
+    console.log("Diagonal yz matched in x = ", x);
+
+  return d1 || d2;
+}
+
+function check_cube_diag(x,y,z){
+  return false;
 }
 
 function check_winning (x,y,z) {
-  // TODO
   // console.log("||||||||||||||||||||||||||||||||||||");
   c1 = check_x_dir(x, y, z);
   c2 = check_y_dir(x, y, z);
   c3 = check_z_dir(x, y, z);
+  c4 = check_diag_xy(x, y, z);
+  c5 = check_diag_xz(x, y, z);
+  c6 = check_diag_yz(x, y, z);
+  c7 = check_cube_diag(x,y,z);
+  
   // check_diag_dir();//tasviresh ru safhe kaf
-  console.log(c1, c2, c3);
-  if(c1 || c2 || c3){
+  
+  if(c1 || c2 || c3 || c4 || c5 || c6 || c7){
     alert("Game finished");
   }
 
