@@ -7,7 +7,7 @@ for (let i = 0; i < 4; i++) { // on z
   for (let j = 0; j < 4; j++) { // on x
     gameMatrix[i][j] = [];
 
-    for (let k = 0; k < 5; k++) { // on y
+    for (let k = 0; k < 4; k++) { // on y
       gameMatrix[i][j][k] = 0;
     }
   }
@@ -232,7 +232,7 @@ function check_cube_diag(x,y,z){
   return ans;
 }
 
-function check_winning (x,y,z) {
+function check_winning (x, y, z) {
   // console.log("||||||||||||||||||||||||||||||||||||");
   c1 = check_x_dir(x, y, z);
   c2 = check_y_dir(x, y, z);

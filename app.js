@@ -332,7 +332,7 @@ function main() {
 
     for (let i = 0; i < 4; i++) { // on x
       for (let j = 0; j < 4; j++) { // on y
-        for (let k = 0; k < 5; k++) { // on z
+        for (let k = 0; k < 4; k++) { // on z
           if (gameMatrix[i][j][k]) {
 
             // up-down = y & unit = 1, left-right = x & unit = 2, front-back = z & unit = 2

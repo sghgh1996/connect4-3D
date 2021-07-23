@@ -71,7 +71,6 @@ label{
 	display:block;
 }
 #names{
-	color: yellow;
 	width: 100%;
 	float: none;
 }
@@ -81,6 +80,12 @@ font-size: 17px;
 margin-bottom: -20px;
 } 
 
+#name1{
+	color: rgba(255, 255, 0, 1);
+}
+#name2{
+	color: rgba(0, 255, 255, 1);
+}
 h4{
 	
 	margin-bottom: -20px;
